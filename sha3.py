@@ -1,5 +1,5 @@
 def pad_message(message, rate):
-    byte_data = bytearray(message)
+    byte_data = bytearray(message) 
 
     # Add the padding "1" bit
     byte_data.append(0x01)
