@@ -1,13 +1,10 @@
 def pad_message(message, rate):
     byte_data = bytearray(message) 
 
-    # Add the padding "1" bit
     byte_data.append(0x01)
 
-    # Add the padding zeros
     padding_length = rate // 8 - (len(byte_data) % (rate // 8))
 
-    # Finalize padding by adding "1" at the end
     byte_data.extend([0] * (padding_length - 1))
     byte_data.append(0x80)
 
@@ -119,7 +116,6 @@ def sha3(message, output_length=32):
     return squeezing_phase(state, rate, output_length)
 
 
-# Example usage
 input = input("Enter data to hash: ")
 input_data = input.encode('utf-8')
 #input_data = b"Hello, World!" # Use a byte string for the message
